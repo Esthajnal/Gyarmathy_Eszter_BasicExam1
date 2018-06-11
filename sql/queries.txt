@@ -1,0 +1,44 @@
+1.gyártó neve és darabszám
+
+SELECT manufacturer ,count(*)  FROM `transport`
+GROUP by manufacturer
+
+2. 3 legnagyobb teherbírású hajó neve,gyártó,kép
+
+SELECT cargo_capacity,model,manufacturer,image FROM transport
+ORDER BY cargo_capacity DESC
+LIMIT 3
+
+3.Kérdezd le 
+* azon hajók model nevét(model), mint Típus, 
+* melyeknél mind a cargo_capacity, passengers, max_atmospheric_speed, és crew, a crew értéke 1,
+* és a gyártó neve(manufacturer) A-val, B-vel, vagy C-vel kezdődik
+A kérdés nehezen értelmezhető, ha mindegyik értéke 1:
+
+SELECT model as Típus FROM transport
+WHERE cargo_capacity=1 && passengers=1 && max_atmosphering_speed=1 && crew=1 && 
+(manufacturer LIKE 'A%' || manufacturer LIKE 'B%' || manufacturer LIKE 'C%')
+
+Amit talán kérdezni akart a szerző:
+SELECT model as Típus,cargo_capacity,passengers,max_atmosphering_speed,crew FROM transport
+WHERE crew=1 && (manufacturer LIKE 'A%' || manufacturer LIKE 'B%' || manufacturer LIKE 'C%')
+
+4. Kérdezd le 
+* azon hajók minden adatát, 
+* melynek gyártójának(manufacturer) nevében szerepel a Corporation szó, 
+* az utasok száma(passangers) nagyobb, mint 0, 
+* az ár(cost_in_creadits) pedig 10000, és 200000 közötti.
+
+SELECT * FROM `transport`
+WHERE manufacturer LIKE '%Corporation' && passengers > 0 && cost_in_credits BETWEEN 10000 AND 200000
+
+5. Kérdez le az 
+* első három hajó nevét(model), mint Megnevezés, és gyártóját(manufacturer), mint Gyártó 
+* a legénység száma(crew) szerint csoportosítva, 
+* melyeknél a legénység(crew) száma 1 és 5 közötti, 
+* és meg van adva (nem NULL), és nem 0 a passengers, és a cargo_capacity értéke
+
+SELECT model AS Megnevezés, manufacturer AS Gyártó FROM transport
+WHERE crew BETWEEN 1 AND 5 && passengers IS NOT null && cargo_capacity IS NOT null
+GROUP BY crew
+	
