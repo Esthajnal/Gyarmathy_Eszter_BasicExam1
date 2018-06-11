@@ -79,6 +79,7 @@ function cartes(person, containerPanels) {
   var objImg = document.createElement('IMG');
   var objDatasDiv = document.createElement('DIV');
   var objStatisticsDiv = document.createElement('DIV');
+  var objButton = document.querySelector('#search-button');
 
   objShapceshipList.appendChild(objCartes);
   objShapceshipList.appendChild(objStatisticsDiv);
@@ -90,6 +91,7 @@ function cartes(person, containerPanels) {
   objCartes.appendChild(objDatasDiv);
   objDatasDiv.classList.add('datasdiv');
   objDatasDiv.innerHTML = `${person.consumables}<br>${person.denomination}<br>${person.cargo_capacity}<br>${person.passengers}<br>${person.max_atmosphering_speed}<br>${person.crew}<br>${person.lengthiness}<br>${person.model}<br>${person.cost_in_credits}<br>${person.manufacturer}`
+  objButton.setAttribute('onclick', 'cartesSearch()');
 }
 /*
  
@@ -135,7 +137,18 @@ function pictureMaxLength(datasArray) {
       maxlength = datasArray[i];
     }
   }
-  return maxlength.image
+  return maxlength.image;
+}
+
+function cartesSearch(datasArray) {
+  var getword = document.getElementById('search-text');
+  var result = [];
+  for (var i = 0; i < datasArray.length; i++); {
+    if (datasArray[i].model.toLowerCase().indexOf(getword.toLowerCase()) > -1) {
+      result += datasArray[i];
+    }
+  }
+  return result;
 }
 
 
