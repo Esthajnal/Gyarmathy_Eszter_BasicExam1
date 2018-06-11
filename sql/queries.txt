@@ -41,4 +41,5 @@ WHERE manufacturer LIKE '%Corporation' && passengers > 0 && cost_in_credits BETW
 SELECT model AS Megnevezés, manufacturer AS Gyártó FROM transport
 WHERE crew BETWEEN 1 AND 5 && passengers IS NOT null && cargo_capacity IS NOT null
 GROUP BY crew
+LIMIT 3
 	
