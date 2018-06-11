@@ -57,7 +57,7 @@ function withoutConsumablesNull(arr) {
     }
   }
   return newDatas;
-}
+};
 
 //nullokból unknown
 function everyWillBeUnknown(arr) {
@@ -68,7 +68,7 @@ function everyWillBeUnknown(arr) {
       }
   }
   return arr;
-}
+};
 
 //kártyák létrehozása
 var objShapceshipList = document.querySelector(".shapceship-list")
@@ -92,7 +92,7 @@ function cartes(person, containerPanels) {
   objDatasDiv.classList.add('datasdiv');
   objDatasDiv.innerHTML = `${person.consumables}<br>${person.denomination}<br>${person.cargo_capacity}<br>${person.passengers}<br>${person.max_atmosphering_speed}<br>${person.crew}<br>${person.lengthiness}<br>${person.model}<br>${person.cost_in_credits}<br>${person.manufacturer}`
   objButton.setAttribute('onclick', 'cartesSearch()');
-}
+};
 /*
  
  
@@ -107,7 +107,7 @@ function oneCrew(datasArray) {
     }
   }
   return `Az egy fős legénységgel rendelkező hajók darabszáma: ${piece}`;
-}
+};
 
 //legnagyobb cargo_capacity
 function maxCargo(datasArray) {
@@ -118,7 +118,7 @@ function maxCargo(datasArray) {
     }
   }
   return maxcargoname.model;
-}
+};
 
 //Az össze hajó összes utasa
 function sumPassengers(datasArray) {
@@ -127,7 +127,7 @@ function sumPassengers(datasArray) {
     allpassenger += datasArray[i].passengers;
   }
   return allpassenger;
-}
+};
 
 //leghoszabb hajó képe
 function pictureMaxLength(datasArray) {
@@ -138,7 +138,7 @@ function pictureMaxLength(datasArray) {
     }
   }
   return maxlength.image;
-}
+};
 
 function cartesSearch(datasArray) {
   var getword = document.getElementById('search-text');
@@ -149,7 +149,7 @@ function cartesSearch(datasArray) {
     }
   }
   return result;
-}
+};
 
 
 
