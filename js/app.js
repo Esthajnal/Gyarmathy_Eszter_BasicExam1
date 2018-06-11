@@ -36,4 +36,6 @@ function costCreditsAsc(arr) {
 }
 
 
+
+
 getData("/json/spaceships.json", successAjax);
